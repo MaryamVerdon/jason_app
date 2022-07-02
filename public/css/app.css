@@ -8,6 +8,11 @@
     src: url("SteinAntik-Bold.ttf");
 }
 
+@font-face {
+    font-family: "ceasar";
+    src: url("CaesarDressing-Regular.ttf");
+}
+
 body {
     background-color: rgb(255, 255, 255);
 }
@@ -25,25 +30,30 @@ p {
     color: black;  
 }
 
-.carrousel {
-    
-    height: 600px;
-    
-  }
+h2 {
+    font-family: 'ceasar', sans-serif;
+    font-size: 80px;
+}
 
-  img {
-    width: 100%;
-    height: 480px;
-    margin-bottom: 10px;
-  }
+.carousel-caption {
+    top:50%;
+    transform: translateY(-50%);
+    bottom:initial;
+}
 
-  /* CSS navbar*/
-  li {
+.carte-img {
+    
+ width: 70%;
+ height: 300px;   
+}
+
+/* CSS navbar*/
+
+li {
     font-family: 'antik', sans-serif;
     font-size: 16px;
     font-weight: bolder;
     color: white;  
-
 }
 
 a {
@@ -51,13 +61,8 @@ a {
     font-size: 20px;
     font-weight: bolder;
     color: white;  
-
 }
 
-
-nav {
-    background-color: #cbe2ef;
-}
 
 nav .navbar-brand , .navbar-nav .nav-link {
     color: rgb(255, 255, 255);
@@ -65,4 +70,4 @@ nav .navbar-brand , .navbar-nav .nav-link {
 
    .navbar-nav .nav-link:hover, nav .navbar-brand:hover {
         color: #cb8536;
-   }
+   } 
