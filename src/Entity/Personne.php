@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Repository\PersonneRepository;
 use Doctrine\ORM\Mapping as ORM;
+use phpDocumentor\Reflection\Types\Integer;
 
 /**
  * @ORM\Entity(repositoryClass=PersonneRepository::class)
@@ -38,9 +39,9 @@ class Personne
     private $ville;
 
     /**
-     * @ORM\Column(type="date")
+     * @ORM\Column(type="integer")
      */
-    private $date_naissance;
+    private $age;
 
     /**
      * @ORM\Column(type="text")
@@ -58,7 +59,7 @@ class Personne
     private $equipage;
 
     /**
-     * @ORM\Column(type="string", length=20)
+     * @ORM\Column(type="boolean")
      */
     private $sexe;
 
@@ -115,14 +116,14 @@ class Personne
         return $this;
     }
 
-    public function getDateNaissance(): ?\DateTimeInterface
+    public function getAge(): ?int
     {
-        return $this->date_naissance;
+        return $this->age;
     }
 
-    public function setDateNaissance(\DateTimeInterface $date_naissance): self
+    public function setAge(int $age): self
     {
-        $this->date_naissance = $date_naissance;
+        $this->age = $age;
 
         return $this;
     }
@@ -163,12 +164,12 @@ class Personne
         return $this;
     }
 
-    public function getSexe(): ?string
+    public function getSexe(): ?bool
     {
         return $this->sexe;
     }
 
-    public function setSexe(string $sexe): self
+    public function setSexe(bool $sexe): self
     {
         $this->sexe = $sexe;
 

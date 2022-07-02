@@ -1,0 +1,68 @@
+@font-face {
+    font-family: "meteora";
+    src: url("MeteoraRocky.ttf");
+}
+
+@font-face {
+    font-family: "antik";
+    src: url("SteinAntik-Bold.ttf");
+}
+
+body {
+    background-color: rgb(255, 255, 255);
+}
+
+h1 {
+    font-family: 'meteora', sans-serif;
+    font-size: 60px;
+    color: #cb8536;
+}
+
+
+p {
+    font-family: 'antik', sans-serif;
+    font-size: 20px;
+    color: black;  
+}
+
+.carrousel {
+    
+    height: 600px;
+    
+  }
+
+  img {
+    width: 100%;
+    height: 480px;
+    margin-bottom: 10px;
+  }
+
+  /* CSS navbar*/
+  li {
+    font-family: 'antik', sans-serif;
+    font-size: 16px;
+    font-weight: bolder;
+    color: white;  
+
+}
+
+a {
+    font-family: 'antik', sans-serif;
+    font-size: 20px;
+    font-weight: bolder;
+    color: white;  
+
+}
+
+
+nav {
+    background-color: #cbe2ef;
+}
+
+nav .navbar-brand , .navbar-nav .nav-link {
+    color: rgb(255, 255, 255);
+   }
+
+   .navbar-nav .nav-link:hover, nav .navbar-brand:hover {
+        color: #cb8536;
+   }
