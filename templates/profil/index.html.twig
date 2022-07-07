@@ -38,9 +38,9 @@
                   <p class="card-text"><span>Rôle :</span> {{ profil.Role.libelle }}</p>
                   <p class="card-text"><span>Point fort: </span> {{ profil.getPtFort}}</p>
                   <p class="card-text"> <span>Faiblesse :</span>  {{ profil.faiblesse}}</p>
-                  <div class="btn-group mt-2" role="group" aria-label="Basic outlined example">
-                    <button type="button" class="btn btn-outline-dark">Consulter</button>
-                    <button type="button" class="btn btn-outline-dark">Accepter</button>
+                  <div class="btn-group mt-2">
+                    <a href="#" class="btn btn-outline-dark">Consulter</a>
+                    <a  href="{{ path('equipage_add' , { 'id': profil.id }) }}"  class="btn btn-outline-dark">Accepter</a>
                   </div>
                 </div>
               </div>
