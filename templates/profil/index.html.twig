@@ -2,10 +2,57 @@
 
 {% block title %}Hello ProfilController!{% endblock %}
 
-
+{% block stylesheets %}
+    <link rel="stylesheet" href="css/navbar.css"/>
+    <link rel="stylesheet" href="css/profil.css"/>
+    
+{% endblock %}
 
 {% block body %}
 
-    <h1 class="mt-5">Profil Controller !!</h1>
+<div class="container mt-5">
+  <div class="row">
 
+    <h1 class="mt-5 text-center">Trouvez vos equipiers !</h1>
+    <p class="text-center">Profils de toutes les personnes de votre liste.</p> 
+
+    {# Mes tri #}
+    <div class="col-3">
+      {% include 'profil/filter.html.twig' with {form: form} only  %}
+    </div>
+   
+    
+    {% for profil in profils %}
+          
+
+            <div class="card m-3 text-center" style="width: 18rem;">
+                <img src="{{ profil.photo }}" class="rounded-circle" style="width: 50%" alt="profil">
+                <div class="card-body">
+                    {% if profil.nom  != null %}
+                        <h5 class="card-title">{{ profil.nom }} {{profil.prenom }}  </h5>
+                    {% else %}
+                        <h5 class="card-title">{{profil.prenom }} </h5>
+                    {% endif %}
+                  <h6 class="card-subtitle mb-2 ">{{ profil.Rang.libelle }}</h6>
+                  <p class="card-text"><span>Age :</span> {{ profil.age }} ans</p>
+                  <p class="card-text"><span>Rôle :</span> {{ profil.Role.libelle }}</p>
+                  <p class="card-text"><span>Point fort: </span> {{ profil.getPtFort}}</p>
+                  <p class="card-text"> <span>Faiblesse :</span>  {{ profil.faiblesse}}</p>
+                  <div class="btn-group mt-2" role="group" aria-label="Basic outlined example">
+                    <button type="button" class="btn btn-outline-dark">Consulter</button>
+                    <button type="button" class="btn btn-outline-dark">Accepter</button>
+                  </div>
+                </div>
+              </div>
+            {% endfor %}
+
+          {# display navigation #}
+          {{ knp_pagination_render(profils) }}
+          
+
+    
+  </div>
+    
+        
+</div>
 {% endblock %}

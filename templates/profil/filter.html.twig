@@ -1,0 +1,18 @@
+{{ form_start(form, { 'attr': {'class': 'filter'} }) }}
+
+<h2>Recherches</h2>
+{{ form_row(form.q) }}
+
+<h2>Rangs</h2>
+{{ form_row(form.rangs) }}
+
+<h2>Rôles</h2>
+{{ form_row(form.roles) }}
+
+<h2>Age</h2>
+{{ form_row(form.ageMin) }}
+{{ form_row(form.ageMax) }} 
+
+<button type="submit" class="btn btn-outline-dark">Filtrer</button>
+
+{{ form_end(form) }}

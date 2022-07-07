@@ -1,0 +1,34 @@
+{
+    "personne": [
+        {
+            "prenom": "Heracles",
+            "mail": "heracles@gmail.com",
+            "ville": "Thèbes",
+            "photo": "https://st3.depositphotos.com/2430771/12865/v/950/depositphotos_128651456-stock-illustration-ancient-greek-helmet-with-a.jpg",
+            "description": "Héros honoré dans l'ensemble du monde grec et le seul humain à se voir accorder l'immortalité parmi les dieux. Il est le protecteur des athlètes et le dieu qui écarte les dangers.",
+            "status": "en attente",
+            "sexe": 1,
+            "age": 20  
+        },
+        {
+            "prenom": "Poseidon",
+            "mail": "poseidon@gmail.com",
+            "ville": "Aigéai",
+            "photo": "https://st3.depositphotos.com/2430771/12865/v/950/depositphotos_128651456-stock-illustration-ancient-greek-helmet-with-a.jpg",
+            "description": "Dieu des océans. Il a un palais d'or situé au fond des mers",
+            "status": "en attente",
+            "sexe": 1,
+            "age": 40  
+        },
+        {
+            "prenom": "Medusa",
+            "mail": "medusa@gmail.com",
+            "ville": "Athènes",
+            "photo": "https://st3.depositphotos.com/2430771/12865/v/950/depositphotos_128651456-stock-illustration-ancient-greek-helmet-with-a.jpg",
+            "description": "Médusa est l'une des trois Gorgones. Elle est la petite-fille de Gaïa (la Terre) et de Pontos (le flot marin). Bien que de sang divin, elle est la seule des trois Gorgones qui est mortelle. ",
+            "status": "en attente",
+            "sexe": 0,
+            "age": 40  
+        }
+    ]
+    }

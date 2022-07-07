@@ -1,0 +1,28 @@
+/* CSS navbar*/
+
+nav {
+    background-color: #cb8536;
+}
+
+nav li {
+    font-family: 'antik', sans-serif;
+    font-size: 16px;
+    font-weight: bolder;
+    color: white;  
+}
+
+ nav a {
+    font-family: 'antik', sans-serif;
+    font-size: 20px;
+    font-weight: bolder;
+    color: white;  
+}
+
+
+nav .navbar-brand , .navbar-nav .nav-link {
+    color: white;
+   }
+
+   .navbar-nav .nav-link:hover, nav .navbar-brand:hover {
+        color: #98ccf4;
+   } 

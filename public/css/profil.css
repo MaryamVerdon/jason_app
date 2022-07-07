@@ -1,0 +1,47 @@
+@font-face {
+    font-family: "meteora";
+    src: url("MeteoraRocky.ttf");
+}
+
+@font-face {
+    font-family: "antik";
+    src: url("SteinAntik-Bold.ttf");
+}
+
+@font-face {
+    font-family: "ceasar";
+    src: url("CaesarDressing-Regular.ttf");
+}
+
+h1 {
+    font-family: 'meteora', sans-serif;
+    font-size: 60px;
+    color: black;
+}
+
+
+p {
+    font-family: 'antik', sans-serif;
+    font-size: 15px;
+    color: black;  
+}
+
+h5 {
+    font-family: 'ceasar', sans-serif;
+    font-size: 25px;
+}
+
+span, h6 {
+    font-family: 'ceasar', sans-serif;
+    font-size: 20px;
+}
+
+h6 {
+    color: #cb8536;
+}
+
+img {
+    margin: 15px auto;
+    padding : 0;
+}
+

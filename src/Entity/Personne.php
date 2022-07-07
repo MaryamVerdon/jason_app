@@ -48,10 +48,6 @@ class Personne
      */
     private $description;
 
-    /**
-     * @ORM\Column(type="string", length=25)
-     */
-    private $statut;
 
     /**
      * @ORM\ManyToOne(targetEntity=Equipage::class, inversedBy="personnes")
@@ -62,6 +58,34 @@ class Personne
      * @ORM\Column(type="boolean")
      */
     private $sexe;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $photo;
+
+    /**
+     * @ORM\Column(type="string", length=50)
+     */
+    private $faiblesse;
+
+    /**
+     * @ORM\Column(type="string", length=50)
+     */
+    private $pt_fort;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=Role::class, inversedBy="personnes")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $role;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=Rang::class, inversedBy="personnes")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $rang;
+
 
     public function getId(): ?int
     {
@@ -140,18 +164,6 @@ class Personne
         return $this;
     }
 
-    public function getStatut(): ?string
-    {
-        return $this->statut;
-    }
-
-    public function setStatut(string $statut): self
-    {
-        $this->statut = $statut;
-
-        return $this;
-    }
-
     public function getEquipage(): ?Equipage
     {
         return $this->equipage;
@@ -172,6 +184,66 @@ class Personne
     public function setSexe(bool $sexe): self
     {
         $this->sexe = $sexe;
+
+        return $this;
+    }
+
+    public function getPhoto(): ?string
+    {
+        return $this->photo;
+    }
+
+    public function setPhoto(?string $photo): self
+    {
+        $this->photo = $photo;
+
+        return $this;
+    }
+
+    public function getFaiblesse(): ?string
+    {
+        return $this->faiblesse;
+    }
+
+    public function setFaiblesse(string $faiblesse): self
+    {
+        $this->faiblesse = $faiblesse;
+
+        return $this;
+    }
+
+    public function getPtFort(): ?string
+    {
+        return $this->pt_fort;
+    }
+
+    public function setPtFort(string $pt_fort): self
+    {
+        $this->pt_fort = $pt_fort;
+
+        return $this;
+    }
+
+    public function getRole(): ?Role
+    {
+        return $this->role;
+    }
+
+    public function setRole(?Role $role): self
+    {
+        $this->role = $role;
+
+        return $this;
+    }
+
+    public function getRang(): ?Rang
+    {
+        return $this->rang;
+    }
+
+    public function setRang(?Rang $rang): self
+    {
+        $this->rang = $rang;
 
         return $this;
     }

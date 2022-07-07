@@ -39,28 +39,120 @@ class PersonneRepository extends ServiceEntityRepository
         }
     }
 
-//    /**
-//     * @return Personne[] Returns an array of Personne objects
-//     */
-//    public function findByExampleField($value): array
-//    {
-//        return $this->createQueryBuilder('p')
-//            ->andWhere('p.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->orderBy('p.id', 'ASC')
-//            ->setMaxResults(10)
-//            ->getQuery()
-//            ->getResult()
-//        ;
-//    }
+    public function findSearch($search): array
+    {
+        $query = $this
+            ->createQueryBuilder('p')
+            ->select('p', 'r', 'rl')
+            ->join('p.rang', 'r')
+            ->join('p.role', 'rl');
 
-//    public function findOneBySomeField($value): ?Personne
-//    {
-//        return $this->createQueryBuilder('p')
-//            ->andWhere('p.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->getQuery()
-//            ->getOneOrNullResult()
-//        ;
-//    }
+        if (!empty($search->q)) {
+            $query = $query
+                ->andWhere('r.libelle LIKE :q')
+                ->orWhere('rl.libelle LIKE :q')
+                ->setParameter('q', "%{$search->q}%");
+        }
+
+        if (!empty($search->ageMin)) {
+            $query = $query
+                ->andWhere('p.age >= :ageMin')
+                ->setParameter('ageMin', $search->ageMin);
+        }
+        if (!empty($search->ageMax)) {
+            $query = $query
+                ->andWhere('p.age <= :ageMax')
+                ->setParameter('ageMax', $search->ageMax);
+        }
+
+        if (!empty($search->rangs)) {
+            $query = $query
+                ->andWhere('r.id = :rangs')
+                ->setParameter('rangs', $search->rangs);
+        }
+
+        if (!empty($search->roles)) {
+            $query = $query
+                ->andWhere('rl.id  = :roles')
+                ->setParameter('roles', $search->roles);
+        }
+
+        return $query->getQuery()->getResult();
+    }
+
+
+    /*  public function findSearch($search): array
+    {
+        $query = $this
+            ->createQueryBuilder('p')
+            ->select('p', 'r')
+            ->join('p.rang', 'r');
+
+        if (!empty($search->q)) {
+            $query = $query
+                ->andWhere('p.prenom LIKE :q')
+                ->setParameter('q', "%{$search->q}%");
+        }
+
+        if (!empty($search->rangs)) {
+            $query = $query
+                ->andWhere('p.rang IN (:rangs)')
+                ->setParameter('rangs', $search->rangs);
+        }
+
+        /* if (!empty($search->ageMin)) {
+            $query = $query
+                ->andWhere('p.age >= :ageMin')
+                ->setParameter('ageMin', $search->ageMin);
+        }
+
+        if (!empty($search->ageMax)) {
+            $query = $query
+                ->andWhere('p.age <= :ageMax')
+                ->setParameter('ageMax', $search->ageMax);
+        }*/
+
+
+
+    /*if (!empty($search->roles)) {
+            $query = $query
+                ->andWhere('p.role IN (:roles)')
+                ->setParameter('roles', $search->roles);
+        } */
+
+    /* if (!empty($search->role)) {
+            $query = $query
+                ->andWhere('i.role = (:role)')
+                ->setParameter('role', $search->role);
+        }*/
+
+    /* return $query->getQuery()->getResult();
+    }*/
+
+
+
+    //    /**
+    //     * @return Personne[] Returns an array of Personne objects
+    //     */
+    //    public function findByExampleField($value): array
+    //    {
+    //        return $this->createQueryBuilder('p')
+    //            ->andWhere('p.exampleField = :val')
+    //            ->setParameter('val', $value)
+    //            ->orderBy('p.id', 'ASC')
+    //            ->setMaxResults(10)
+    //            ->getQuery()
+    //            ->getResult()
+    //        ;
+    //    }
+
+    //    public function findOneBySomeField($value): ?Personne
+    //    {
+    //        return $this->createQueryBuilder('p')
+    //            ->andWhere('p.exampleField = :val')
+    //            ->setParameter('val', $value)
+    //            ->getQuery()
+    //            ->getOneOrNullResult()
+    //        ;
+    //    }
 }

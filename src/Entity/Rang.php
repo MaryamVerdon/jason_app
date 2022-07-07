@@ -2,15 +2,15 @@
 
 namespace App\Entity;
 
-use App\Repository\EquipageRepository;
+use App\Repository\RangRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass=EquipageRepository::class)
+ * @ORM\Entity(repositoryClass=RangRepository::class)
  */
-class Equipage
+class Rang
 {
     /**
      * @ORM\Id
@@ -20,17 +20,12 @@ class Equipage
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=100)
+     * @ORM\Column(type="string", length=50)
      */
     private $libelle;
 
     /**
-     * @ORM\Column(type="integer")
-     */
-    private $quantite_max;
-
-    /**
-     * @ORM\OneToMany(targetEntity=Personne::class, mappedBy="equipage")
+     * @ORM\OneToMany(targetEntity=Personne::class, mappedBy="rang", orphanRemoval=true)
      */
     private $personnes;
 
@@ -56,18 +51,6 @@ class Equipage
         return $this;
     }
 
-    public function getQuantiteMax(): ?int
-    {
-        return $this->quantite_max;
-    }
-
-    public function setQuantiteMax(int $quantite_max): self
-    {
-        $this->quantite_max = $quantite_max;
-
-        return $this;
-    }
-
     /**
      * @return Collection<int, Personne>
      */
@@ -80,7 +63,7 @@ class Equipage
     {
         if (!$this->personnes->contains($personne)) {
             $this->personnes[] = $personne;
-            $personne->setEquipage($this);
+            $personne->setRang($this);
         }
 
         return $this;
@@ -90,11 +73,16 @@ class Equipage
     {
         if ($this->personnes->removeElement($personne)) {
             // set the owning side to null (unless already changed)
-            if ($personne->getEquipage() === $this) {
-                $personne->setEquipage(null);
+            if ($personne->getRang() === $this) {
+                $personne->setRang(null);
             }
         }
 
         return $this;
+    }
+
+    public function __toString()
+    {
+        return $this->getLibelle();
     }
 }
