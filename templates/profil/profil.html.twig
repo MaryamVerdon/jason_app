@@ -37,7 +37,7 @@
 
     <div class="container" style="margin-top : 100px;"> 
         
-            <div class="card col-5">
+            <div class="card col-5 mb-5">
               <img src="{{ profil.photo }}" class="card-img-top" style="width: 30%;" alt="profil">
                 <div class="card-body">
                   {% if profil.nom  != null %}
@@ -65,12 +65,18 @@
                   <p class="card-text"><span>Point fort: </span> {{ profil.getPtFort}}</p>
                   <p class="card-text"> <span>Faiblesse :</span>  {{ profil.faiblesse}}</p>
                   
-
-                  <a href="#" class="btn btn-dark w-100" style="font-family: 'ceasar', sans-serif;">Envoyer un messager</a>
+                  <div class="btn-group mt-2 w-100" style="font-family: 'ceasar', sans-serif;">
+                    <a href="{{ path('app_profil') }}" class="btn btn-dark">
+                      Retour
+                    </a>
+                    <a href="#"  class="btn btn-outline-dark">
+                      Envoyer un messager
+                    </a>
+                  </div>
+                  
               </div>
             </div>         
     </div>
-
 
         
 {% endblock %}
