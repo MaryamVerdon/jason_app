@@ -4,9 +4,9 @@
 
 {% block stylesheets %}
     <link rel="stylesheet" href="css/navbar.css"/>
-    <link rel="stylesheet" href="css/profil.css"/>
-    
+    <link rel="stylesheet" href="css/profil.css"/>   
 {% endblock %}
+
 
 {% block body %}
 
@@ -17,10 +17,12 @@
     <p class="text-center">Profils de toutes les personnes de votre liste.</p> 
 
     {# Mes tri #}
-    <div class="col-3">
+    <div class="col-2">
       {% include 'profil/filter.html.twig' with {form: form} only  %}
     </div>
-   
+  
+    <div class="col-9">
+      <div class="grid">
     
     {% for profil in profils %}
           
@@ -38,21 +40,24 @@
                   <p class="card-text"><span>Rôle :</span> {{ profil.Role.libelle }}</p>
                   <p class="card-text"><span>Point fort: </span> {{ profil.getPtFort}}</p>
                   <p class="card-text"> <span>Faiblesse :</span>  {{ profil.faiblesse}}</p>
-                  <div class="btn-group mt-2">
-                    <a href="#" class="btn btn-outline-dark">Consulter</a>
-                    <a  href="{{ path('equipage_add' , { 'id': profil.id }) }}"  class="btn btn-outline-dark">Accepter</a>
+                  <div class="btn-group mt-2" style="font-family: 'ceasar', sans-serif;">
+                    <a href="{{ path('profil_display' , { 'id': profil.id }) }}" class="btn btn-outline-dark">
+                      Consulter
+                    </a>
+                    <a href="{{ path('equipage_add' , { 'id': profil.id }) }}"  class="btn btn-outline-dark">
+                      Accepter
+                    </a>
                   </div>
                 </div>
               </div>
             {% endfor %}
+        </div>
 
-          {# display navigation #}
+           {# display navigation #}
           {{ knp_pagination_render(profils) }}
-          
-
-    
-  </div>
-    
-        
+        </div>
+  </div>      
 </div>
 {% endblock %}
+
+

@@ -40,4 +40,17 @@ class ProfilController extends AbstractController
             'form' => $form->createView()
         ]);
     }
+
+    /**
+     * @Route("/profil/{id}", name="profil_display")
+     */
+    public function display($id, PersonneRepository $personneRepository)
+    {
+
+        $profil = $personneRepository->find($id);
+
+        return $this->render('profil/profil.html.twig', [
+            'profil' => $profil
+        ]);
+    }
 }

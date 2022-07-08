@@ -41,6 +41,21 @@ class EquipageController extends AbstractController
         $equipage[$id] = 1;
         $session->set('equipage', $equipage);
 
-        dd($session->get('equipage'));
+        return $this->redirectToRoute("app_equipage");
+    }
+
+    /**
+     * @Route("/equipage/remove/{id}", name="equipage_remove")
+     */
+    public function remove($id, SessionInterface $session)
+    {
+        $equipage = $session->get('equipage', []);
+        if (!empty($equipage[$id])) {
+            unset($equipage[$id]);
+        }
+
+        $session->set('equipage', $equipage);
+
+        return $this->redirectToRoute("app_equipage");
     }
 }

@@ -1,0 +1,106 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello ProfilController!{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="../../css/navbar.css"/>
+    <link rel="stylesheet" href="../../css/profil.css"/>
+    
+{% endblock %}
+
+{% block body %}
+
+<style>
+  .card-subtitle {
+    border-radius: 5px;
+    padding: 5px;
+    margin-right: 5px;
+    border: 1px solid;
+    font-family: 'ceasar', sans-serif;
+    color: #6b85b2;
+  }
+  
+  p span {
+    color: #cb8536;
+  }
+
+  .card {
+      margin: 0 auto;
+  }
+
+  body {
+    background-image: url('https://t4.ftcdn.net/jpg/01/36/80/77/360_F_136807751_kRDSJEqlsE9z9vpY7ClHKjPsrQ89ZJxA.jpg');
+  }
+
+
+</style>
+
+    <div class="container" style="margin-top : 100px;"> 
+        
+            <div class="card col-5">
+              <img src="{{ profil.photo }}" class="card-img-top" style="width: 30%;" alt="profil">
+                <div class="card-body">
+                  {% if profil.nom  != null %}
+                    <h5 class="card-title text-center">{{ profil.nom }} {{profil.prenom }}  </h5>
+                  {% else %}
+                    <h5 class="card-title text-center">{{profil.prenom }} </h5>
+                  {% endif %}   
+                  <p class="card-text text-center">{{ profil.description }}</p>
+
+                  <div class="row mb-4">
+                    <h6 class="col card-subtitle">{{ profil.Rang.libelle }} </h6>
+                    <h6 class="col card-subtitle">{{ profil.Role.libelle }} </h6>
+                    <h6 class="col card-subtitle"> {{ profil.age }} ans</h6>
+                    <h6 class="col card-subtitle">
+                      {% if profil.sexe %}
+                        Masculin
+                      {%  else %}
+                        Feminin
+                      {% endif %}
+                    </h6>
+                  </div>
+
+                  <p class="card-text"><span>Email :</span> {{ profil.mail }}</p>
+                  <p class="card-text"><span>Ville :</span> {{ profil.ville }}</p>
+                  <p class="card-text"><span>Point fort: </span> {{ profil.getPtFort}}</p>
+                  <p class="card-text"> <span>Faiblesse :</span>  {{ profil.faiblesse}}</p>
+                  
+
+                  <a href="#" class="btn btn-dark w-100" style="font-family: 'ceasar', sans-serif;">Envoyer un messager</a>
+              </div>
+            </div>         
+    </div>
+
+
+        
+{% endblock %}
+{#
+    
+    <div class="card m-3 text-center" style="width: 25rem;">
+            <img src="{{ profil.photo }}" class="rounded-circle" style="width: 50%" alt="profil">
+            <div class="card-body">
+                {% if profil.nom  != null %}
+                    <h5 class="card-title">{{ profil.nom }} {{profil.prenom }}  </h5>
+                {% else %}
+                    <h5 class="card-title">{{profil.prenom }} </h5>
+                {% endif %}
+              <h6 class="card-subtitle mb-2 ">{{ profil.Rang.libelle }}</h6>
+              <p class="card-text"><span>Age :</span> {{ profil.age }} ans</p>
+              <p class="card-text"><span>Genre :</span> {{ profil.sexe}}</p>
+              <p class="card-text"><span>Email :</span> {{ profil.mail }}</p>
+              <p class="card-text"><span>Ville :</span> {{ profil.ville }}</p>
+              <p class="card-text"><span>Description :</span> {{ profil.description }}</p>
+              <p class="card-text"><span>Rôle :</span> {{ profil.Role.libelle }}</p>
+              <p class="card-text"><span>Point fort: </span> {{ profil.getPtFort}}</p>
+              <p class="card-text"> <span>Faiblesse :</span>  {{ profil.faiblesse}}</p>
+
+              <div class="btn-group mt-2">
+                <a href="{{ path('app_profil') }}" class="btn btn-outline-dark">Retour</a>
+                <a  href="#" class="btn btn-outline-dark">Contacter</a>
+              </div>
+            </div>
+          </div>
+    </div>
+    
+    
+    #}

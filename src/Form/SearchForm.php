@@ -40,6 +40,7 @@ class SearchForm extends AbstractType
                 'required' => false,
                 'class' => Role::class,
                 'choice_label' => 'libelle'
+
             ])
 
             ->add('ageMin', NumberType::class, [

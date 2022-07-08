@@ -3,22 +3,28 @@
 {% block stylesheets %}
     <link rel="stylesheet" href="css/navbar.css"/>
     <link rel="stylesheet" href="css/profil.css"/>
+    <link rel="stylesheet" href="css/table.css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />   
 {% endblock %}
 
 {% block title %}Hello EquipageController!{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
 
-<div class="container mt-5">
+
+<div class="container text-center" style="margin-top: 100px;">
     <h1>Mon equipage !!</h1>
+    {% if equipage | length == 50 %}
+        <h1>L'équipage est au complet!</h1>
+    {% elseif equipage | length > 0 %}
 
-    {% if equipage | length > 0 %}
-        <table class="table">
+        {% if equipage | length == 1 %}
+            <h1>Vous avez {{  equipage | length}} equipier ! </h1>
+        {% else %}
+            <h1>Vous avez {{  equipage | length}} equipiers ! </h1>
+        {% endif %}
+        
+        <table class="table content-table">
             <thead>
                 <tr>
                     <th>Photo</th>
@@ -30,11 +36,11 @@
             <tbody>
                 {% for equipier in equipage %}
                     <tr>
-                        <td> <img src="{{ equipier.profil.photo }}" style="width: 10%" alt="profil"></td>
+                        <td> <img src="{{ equipier.profil.photo }}" style="width: 60px;" alt="profil"></td>
                         <td>{{ equipier.profil.prenom }}</td>
                         <td>{{ equipier.profil.role.libelle }}</td>
                         <td>
-                            <a href="#" class="btn btn-danger btn-sm">
+                            <a href="{{ path('equipage_remove' , { 'id': equipier.profil.id }) }}" class="btn btn-danger btn-sm">
                                 <i class="fas fa-trash-alt"></i>
                             </a>
                         </td>
