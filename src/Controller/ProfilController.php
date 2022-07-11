@@ -3,12 +3,13 @@
 namespace App\Controller;
 
 use App\Data\SearchData;
-use App\Repository\PersonneRepository;
 use App\Form\SearchForm;
+use App\Form\MailForm;
+use App\Repository\PersonneRepository;
+use App\Service\MailerService;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Component\HttpFoundation\Request;
 use Knp\Component\Pager\PaginatorInterface;
 
@@ -32,7 +33,7 @@ class ProfilController extends AbstractController
         $profils = $paginator->paginate(
             $profils,
             $request->query->getInt('page', 1),
-            3
+            24
         );
 
         return $this->render('profil/index.html.twig', [

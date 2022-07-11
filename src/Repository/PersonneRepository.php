@@ -81,53 +81,6 @@ class PersonneRepository extends ServiceEntityRepository
     }
 
 
-    /*  public function findSearch($search): array
-    {
-        $query = $this
-            ->createQueryBuilder('p')
-            ->select('p', 'r')
-            ->join('p.rang', 'r');
-
-        if (!empty($search->q)) {
-            $query = $query
-                ->andWhere('p.prenom LIKE :q')
-                ->setParameter('q', "%{$search->q}%");
-        }
-
-        if (!empty($search->rangs)) {
-            $query = $query
-                ->andWhere('p.rang IN (:rangs)')
-                ->setParameter('rangs', $search->rangs);
-        }
-
-        /* if (!empty($search->ageMin)) {
-            $query = $query
-                ->andWhere('p.age >= :ageMin')
-                ->setParameter('ageMin', $search->ageMin);
-        }
-
-        if (!empty($search->ageMax)) {
-            $query = $query
-                ->andWhere('p.age <= :ageMax')
-                ->setParameter('ageMax', $search->ageMax);
-        }*/
-
-
-
-    /*if (!empty($search->roles)) {
-            $query = $query
-                ->andWhere('p.role IN (:roles)')
-                ->setParameter('roles', $search->roles);
-        } */
-
-    /* if (!empty($search->role)) {
-            $query = $query
-                ->andWhere('i.role = (:role)')
-                ->setParameter('role', $search->role);
-        }*/
-
-    /* return $query->getQuery()->getResult();
-    }*/
 
 
 

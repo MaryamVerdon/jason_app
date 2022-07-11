@@ -12,19 +12,19 @@
 {% block body %}
 
 
-<div class="container text-center" style="margin-top: 100px;">
+<div class="container text-center mb-5" style="margin-top: 100px;">
     <h1>Mon equipage !!</h1>
     {% if equipage | length == 50 %}
         <h1>L'équipage est au complet!</h1>
     {% elseif equipage | length > 0 %}
 
         {% if equipage | length == 1 %}
-            <h1>Vous avez {{  equipage | length}} equipier ! </h1>
+            <h1>Vous avez {{  equipage | length}} equipier il en manque 49 ! </h1>
         {% else %}
-            <h1>Vous avez {{  equipage | length}} equipiers ! </h1>
+            <h1>Vous avez {{  equipage | length}} equipiers il en manque {{  50 - equipage | length  }} ! </h1>
         {% endif %}
         
-        <table class="table content-table">
+        <table class="table content-table" style="margin-bottom: 100px;">
             <thead>
                 <tr>
                     <th>Photo</th>
@@ -36,7 +36,7 @@
             <tbody>
                 {% for equipier in equipage %}
                     <tr>
-                        <td> <img src="{{ equipier.profil.photo }}" style="width: 60px;" alt="profil"></td>
+                        <td><img src="{{ equipier.profil.photo }}" style="width: 60px;" alt="profil"></td>
                         <td>{{ equipier.profil.prenom }}</td>
                         <td>{{ equipier.profil.role.libelle }}</td>
                         <td>

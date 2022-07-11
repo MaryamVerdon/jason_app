@@ -10,7 +10,7 @@
 
 {% block body %}
 
-<div class="container mt-5">
+<div class="container mt-5 mb-5">
   <div class="row">
 
     <h1 class="mt-5 text-center">Trouvez vos equipiers !</h1>
@@ -28,7 +28,7 @@
           
 
             <div class="card m-3 text-center" style="width: 18rem;">
-                <img src="{{ profil.photo }}" class="rounded-circle" style="width: 50%" alt="profil">
+                <img src="{{ profil.photo }}" class="rounded-circle profil" style="width: 50%" alt="profil">
                 <div class="card-body">
                     {% if profil.nom  != null %}
                         <h5 class="card-title">{{ profil.nom }} {{profil.prenom }}  </h5>
