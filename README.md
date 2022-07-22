@@ -1,5 +1,10 @@
-# Application de création d'un équipage
-Cette application à pour but de permettre à Jason de composer son équipage de 50 équipers pour aller récupérer la toison d’or.
+# Jason App : Application de création d'un équipage
+Cette application à pour but de permettre à Jason de composer son équipage de 50 équipers pour aller récupérer la toison d’or. 
+
+Technologies utilisées : `Symfony`, `Bootstrap`, `JavaScript`
+
+![](./docs/img/accueil.PNG)
+
 
 ## Comment participer au projet ?
 
@@ -32,10 +37,20 @@ Cette application à pour but de permettre à Jason de composer son équipage de
  ### Fonctionnalités du projet
  
   - Affichage de tous les profils 
-  - Tri des profils par age, rôle, rang
+  - Tri des profils par âge, rôle, rang
   - Système de pagination
   - Affichage d'une fiche profil
   - Ajout/Supression d'un équipier dans l'équipage (système de Session)
   
-  ### Rendu final
- 
+  ## Rendu final
+  ### Page Profils & Tri
+  ![Tri Profils](./docs/img/tri.png)
+  
+   ### Page Fiche Profil
+  ![Fiche](./docs/img/ficheProfil.PNG)
+    
+   ### Page Equipage
+  ![Equipage](./docs/img/equipage.png)
+  
+
+  
