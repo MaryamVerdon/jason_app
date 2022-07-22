@@ -33,7 +33,7 @@ class ProfilController extends AbstractController
         $profils = $paginator->paginate(
             $profils,
             $request->query->getInt('page', 1),
-            24
+            15
         );
 
         return $this->render('profil/index.html.twig', [
