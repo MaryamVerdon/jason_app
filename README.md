@@ -52,5 +52,10 @@ Technologies utilisées : `Symfony`, `Bootstrap`, `JavaScript`
    ### Page Equipage
   ![Equipage](./docs/img/equipage.png)
   
-
   
+## Démo
+ 
+https://user-images.githubusercontent.com/74917307/180499780-9c4d0c92-4034-4150-8acc-f865cac3046a.mp4
+
+
+
